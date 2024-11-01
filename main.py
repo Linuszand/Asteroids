@@ -17,7 +17,7 @@ def main():
     running = True
     x = SCREEN_WIDTH / 2
     y = SCREEN_HEIGHT / 2
-    derp = 0
+    dt = 0
     time = pygame.time.Clock()
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
@@ -40,7 +40,7 @@ def main():
                 return
 
         for obj in updatable:
-            obj.update(derp)
+            obj.update(dt)
 
         for asteroid in asteroids:
             if new_triangle.collision(asteroid):
@@ -59,7 +59,7 @@ def main():
 
         pygame.display.flip()
 
-        derp = time.tick(60)/1000
+        dt = time.tick(60)/1000
         
 if __name__ == "__main__":
     main()
